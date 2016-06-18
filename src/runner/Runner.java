@@ -2,6 +2,7 @@ package runner;
 
 
 import commands.Command;
+import exceptions.DirectoryDoesNotExistException;
 import exceptions.DirectoryExistsException;
 
 import java.lang.reflect.Constructor;
@@ -17,6 +18,7 @@ public class Runner {
             (){
         {
             put("mkdir", "commands.MakeDirectory");
+            put("rm", "commands.RemoveFile");
         }
     };
 
@@ -37,6 +39,9 @@ public class Runner {
             Command runCmd = (Command) cons.newInstance(cmd[1]);
             return runCmd.run();
 
+        }
+        catch (DirectoryDoesNotExistException e){
+            return new String[]{"", e.getMessage()};
         }
         catch (DirectoryExistsException e){
             return new String[]{"", e.getMessage()};

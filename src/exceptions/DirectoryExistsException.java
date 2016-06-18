@@ -1,7 +1,11 @@
 package exceptions;
 
-/**
- * Created by KevinMacbook on 2016-06-16.
- */
-public class DirectoryExistsException {
+public class DirectoryExistsException extends Exception{
+
+    public DirectoryExistsException(){
+        super("Directory already Exists");
+    }
+    public DirectoryExistsException(String message){
+        super(message);
+    }
 }

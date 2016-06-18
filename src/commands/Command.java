@@ -1,7 +1,17 @@
 package commands;
 
-/**
- * Created by KevinMacbook on 2016-06-16.
- */
-public class Command {
+
+import exceptions.DirectoryExistsException;
+
+public abstract class Command {
+
+    protected String userInput;
+
+    public Command(){}
+    public Command(String userInput){
+        this.userInput = userInput;
+    }
+
+    public abstract String[] run() throws DirectoryExistsException;
+
 }

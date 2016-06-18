@@ -1,6 +1,7 @@
 package commands;
 
 
+import exceptions.DirectoryDoesNotExistException;
 import exceptions.DirectoryExistsException;
 
 public abstract class Command {
@@ -12,6 +13,7 @@ public abstract class Command {
         this.userInput = userInput;
     }
 
-    public abstract String[] run() throws DirectoryExistsException;
+    public abstract String[] run() throws DirectoryExistsException,
+            DirectoryDoesNotExistException;
 
 }
